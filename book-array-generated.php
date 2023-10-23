@@ -7,7 +7,7 @@ $bookArray = array(
         "ISBN" => "1436247151379",
         "genre" => "Horror",
         "page count" => 909,
-        "color" => "black"
+        "color" => "blue"
     ),
     array(
         "author" => "Danmah Thomtino",
@@ -15,7 +15,7 @@ $bookArray = array(
         "ISBN" => "1096903811896",
         "genre" => "Horror",
         "page count" => 184,
-        "color" => "white"
+        "color" => "red"
     ),
     array(
         "author" => "Kevliam Hansiams",
@@ -23,7 +23,7 @@ $bookArray = array(
         "ISBN" => "1286645771489",
         "genre" => "Thriller",
         "page count" => 523,
-        "color" => "black"
+        "color" => "blue"
     ),
     array(
         "author" => "Marnifer Joniams",
@@ -31,7 +31,7 @@ $bookArray = array(
         "ISBN" => "1053001570168",
         "genre" => "Crime",
         "page count" => 456,
-        "color" => "green"
+        "color" => "red"
     ),
     array(
         "author" => "Benchan Davben",
@@ -39,7 +39,7 @@ $bookArray = array(
         "ISBN" => "1573106165982",
         "genre" => "Fantasy",
         "page count" => 417,
-        "color" => "green"
+        "color" => "red"
     ),
     array(
         "author" => "Lisicz Andesen",
@@ -55,7 +55,7 @@ $bookArray = array(
         "ISBN" => "1648876590911",
         "genre" => "Romance",
         "page count" => 703,
-        "color" => "white"
+        "color" => "pink"
     ),
     array(
         "author" => "Katicz Sundoro",
@@ -63,7 +63,7 @@ $bookArray = array(
         "ISBN" => "1021977686145",
         "genre" => "Non-Fiction",
         "page count" => 943,
-        "color" => "grey"
+        "color" => "orange"
     ),
     array(
         "author" => "Thoael Sundini",
@@ -87,7 +87,7 @@ $bookArray = array(
         "ISBN" => "1678318292302",
         "genre" => "Non-Fiction",
         "page count" => 674,
-        "color" => "magenta"
+        "color" => "purple"
     ),
     array(
         "author" => "Johmah Willliu",
@@ -95,7 +95,7 @@ $bookArray = array(
         "ISBN" => "1031274981377",
         "genre" => "Crime",
         "page count" => 524,
-        "color" => "magenta"
+        "color" => "purple"
     ),
     array(
         "author" => "Patchan Ivanov",
@@ -103,7 +103,7 @@ $bookArray = array(
         "ISBN" => "1046180712411",
         "genre" => "Romance",
         "page count" => 825,
-        "color" => "black"
+        "color" => "blue"
     ),
     array(
         "author" => "Jenael Thomwon",
@@ -135,7 +135,7 @@ $bookArray = array(
         "ISBN" => "1854882535046",
         "genre" => "Horror",
         "page count" => 514,
-        "color" => "grey"
+        "color" => "orange"
     ),
     array(
         "author" => "Elimah Willtan",
