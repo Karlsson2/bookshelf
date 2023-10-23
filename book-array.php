@@ -99,7 +99,6 @@ function generateBooks(int $numberOfBooks): array
         $titleWordTwoCount = count($titles[1]);
         $titleWordThreeCount = count($titles[2]);
 
-
         $title = sprintf(
             '%s %s %s',
             ucwords($titles[0][mt_rand(0, $titleWordOneCount - 1)]),
