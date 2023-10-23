@@ -7,7 +7,7 @@ require __DIR__ . "/header.php";
 <body>
     <div class="shelf">
         <?php foreach ($bookArray as $book) : ?>
-            <div class="book">
+            <div class="book book-<?= $book["color"] ?>">
                 <?= $book["title"] ?>
             </div>
         <?php endforeach; ?>

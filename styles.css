@@ -17,13 +17,55 @@ body {
 .shelf {
   width: 100vw;
   display: flex;
-  gap: 10px;
+  gap: 2px;
   border-bottom: 10px rgb(54, 27, 16) solid;
 }
 .book {
   height: 400px;
   width: 50px;
   background-color: grey;
-  writing-mode: vertical-rl;
+  writing-mode: vertical-lr;
   text-orientation: upright;
+}
+
+.book-width-small {
+  width: 50px;
+}
+.book-width-medium {
+  width: 100px;
+}
+.book-width-large {
+  width: 180px;
+}
+.book-height-small {
+  height: 200px;
+}
+.book-height-medium {
+  height: 300px;
+}
+.book-height-large {
+  height: 400px;
+}
+
+.book-orange {
+  background-color: var(--orange);
+}
+.book-pink {
+  background-color: var(--pink);
+}
+.book-blue {
+  background-color: var(--blue);
+}
+.book-purple {
+  background-color: var(--purple);
+}
+.book-green {
+  background-color: var(--green);
+}
+.book-yellow {
+  background-color: var(--yellow);
+}
+
+.book-red {
+  background-color: var(--red);
 }
