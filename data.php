@@ -78,7 +78,7 @@ function generateBooks(int $numberOfBooks): array
     ];
 
     $colors = [
-        'red', 'blue', 'grey', 'black', 'green', 'magenta', 'white', 'black', 'pink'
+        'red', 'blue', 'green', 'purple', 'pink', 'yellow', 'orange'
     ];
 
     $nameKeys = array_keys($names);
