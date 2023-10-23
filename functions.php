@@ -26,3 +26,13 @@ function sortBySize(array $sortingArray): array
     array_multisort($key_values, SORT_ASC, $sortingArray);
     return $sortingArray;
 }
+function searchArray(array $searchArray, string $searchString)
+{
+    foreach ($searchArray as $array) {
+        if ($array["title"] == $searchString || $array["author"] == $searchString) {
+            return $array;
+        } else {
+            return false;
+        }
+    }
+}
