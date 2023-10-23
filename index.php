@@ -4,9 +4,9 @@ require __DIR__ . "/book-array-generated.php";
 require __DIR__ . "/header.php";
 require __DIR__ . "/functions.php";
 
-$sorting = $_GET["sorting"] ?? null;
+$sorting = $_POST["sorting"] ?? null;
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($sorting)) {
         switch ($sorting) {
             case "alphabetically":
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <?php endforeach; ?>
     </div>
     <div class="buttons">
-        <form action="index.php" method="GET">
+        <form action="index.php" method="POST">
             <button name="sorting" type="submit" value="alphabetically">Alphabetically</button>
             <button name="sorting" type="submit" value="size">Size</button>
             <button name="sorting" type="submit" value="color">Colour</button>
