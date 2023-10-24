@@ -29,10 +29,20 @@ body {
   justify-content: space-around;
   margin-top: 40px;
 }
+.buttons {
+  margin-top: 40px;
+}
 .book {
   height: 400px;
   width: 50px;
-  background-color: grey;
+  border-radius: 5px 5px 0px 0px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.book-title {
   writing-mode: vertical-lr;
   text-orientation: upright;
 }
