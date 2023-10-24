@@ -41,6 +41,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
+  align-self: baseline;
 }
 .book-title {
   writing-mode: vertical-lr;
@@ -51,7 +52,6 @@ body {
 }
 .book-author {
   padding-bottom: 10px;
-
 }
 
 .book-width-small {
