@@ -52,7 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="shelf">
         <?php foreach ($bookArray as $book) : ?>
             <div class="book book-<?= $book["color"] ?>">
-                <?= $book["title"] ?>
+                <div class="book-title"> <?= $book["title"] ?></div>
+                <div class="book-author"><?= getInitials($book["author"]) ?></div>
+
             </div>
         <?php endforeach; ?>
     </div>

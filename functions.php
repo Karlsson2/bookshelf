@@ -26,13 +26,9 @@ function sortBySize(array $sortingArray): array
     array_multisort($key_values, SORT_ASC, $sortingArray);
     return $sortingArray;
 }
-function searchArray(array $searchArray, string $searchString)
+function getInitials(string $fullName): string
 {
-    foreach ($searchArray as $array) {
-        if ($array["title"] == $searchString || $array["author"] == $searchString) {
-            return $array;
-        } else {
-            return false;
-        }
-    }
+    $nameArray = explode(" ", $fullName, 2);
+    $fullName = substr($nameArray[0], 0, 1) . "." . substr($nameArray[1], 0, 1);
+    return $fullName;
 }
