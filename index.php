@@ -46,13 +46,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button name="sorting" type="submit" value="alphabetically">Alphabetically</button>
                 <button name="sorting" type="submit" value="size">Size</button>
                 <button name="sorting" type="submit" value="color">Colour</button>
+                <button name="sorting" type="submit" value="author">Author</button>
             </form>
         </div>
     </div>
     <div class="shelf">
         <?php foreach ($bookArray as $book) : ?>
             <div class="book book-<?= $book["color"] ?>">
-                <div class="book-title"> <?= $book["title"] ?></div>
+                <div class="book-title">
+                    <div class="title-text"><?= $book["title"] ?></div>
+                </div>
                 <div class="book-author"><?= getInitials($book["author"]) ?></div>
 
             </div>
