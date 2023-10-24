@@ -1,11 +1,21 @@
 :root {
-  --blue: #0d506f;
-  --green: #0a9396;
-  --purple: #704598;
+  --blue: #12719d;
+
+  --light-blue: #0d506f;
+
+  --green: #0dc2c6;
+  --light-green: #0a9396;
+
+  --purple: #8a5bb5;
+  --light-purple: #704598;
   --pink: #e6738e;
+  --dark-pink: #de486b;
   --yellow: #f6d74c;
+  --dark-yellow: #f4cc1b;
   --red: #d62828;
+  --light-red: #df5252;
   --orange: #f77f00;
+  --light-orange: #ff982b;
   --body: #ece1d8;
   --shelf: #857872;
   --text-color: #524b46;
@@ -26,32 +36,51 @@ body {
   gap: 2px;
   border-bottom: 10px var(--shelf) solid;
   margin: 0 auto;
-  justify-content: space-around;
   margin-top: 40px;
 }
 .buttons {
   margin-top: 40px;
 }
 .book {
-  height: 400px;
-  width: 50px;
   border-radius: 5px 5px 0px 0px;
   font-size: 12px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   flex-direction: column;
-  align-self: baseline;
+  align-self: flex-end;
 }
 .book-title {
   writing-mode: vertical-lr;
-  text-orientation: upright;
   height: 100%;
   display: flex;
   justify-content: center;
 }
 .book-author {
-  padding-bottom: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+.book-author-orange {
+  background-color: var(--light-orange);
+}
+.book-author-red {
+  background-color: var(--light-red);
+}
+.book-author-pink {
+  background-color: var(--dark-pink);
+}
+.book-author-blue {
+  background-color: var(--light-blue);
+}
+.book-author-purple {
+  background-color: var(--light-purple);
+}
+.book-author-green {
+  background-color: var(--light-green);
+}
+
+.book-author-yellow {
+  background-color: var(--dark-yellow);
 }
 
 .book-width-small {
@@ -172,4 +201,7 @@ input[type="search"]::-webkit-search-cancel-button {
   background-color: white;
   opacity: 1;
   pointer-events: none;
+}
+.icon {
+  margin-top: 10px;
 }
