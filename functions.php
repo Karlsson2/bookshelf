@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+require __DIR__ . '/book-array-generated.php';
 
 function sortAlphabetically(array $sortingArray): array
 {
@@ -99,3 +100,45 @@ function getGenre(string $bookGenre): string
             break;
     }
 }
+
+function getSearchResults($bookTitle, $bookAuthor, $bookColor)
+{
+    if (strtolower($bookTitle) !== strtolower(trim(htmlspecialchars($_POST['searching']), " "))) {
+        return 'unselected';
+    } else {
+        return $bookColor;
+    }
+    /* 
+    switch ($bookTitle) {
+        case (strtolower(trim(htmlspecialchars($bookTitle), " ")) !== strtolower(trim(htmlspecialchars($_POST['searching']), " "))):
+            return 'unselected';
+            break;
+        case strtolower(trim(htmlspecialchars($bookTitle), " ")) == strtolower(trim(htmlspecialchars($_POST['searching']), " ")):
+            break;
+    } */
+}
+/*
+    if (!in_array($_POST['searching'], $bookAuthors) || !in_array($_POST['searching'], $bookTitles)) {
+        return 'unselected';
+    }
+}
+*/
+
+
+    /*
+    foreach ($bookAuthors as $author) {
+        if ($_POST['searching'] !== strtolower(trim(htmlspecialchars($author), " "))) {
+            return 'unselected';
+        } else {
+            return;
+        }
+        foreach ($bookTitles as $title) {
+            if ($_POST['searching'] !== strtolower(trim(htmlspecialchars($title), " "))) {
+                return 'unselected';
+            } else {
+                return;
+            }
+        }
+    }
+}
+*/

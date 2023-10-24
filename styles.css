@@ -131,18 +131,26 @@ body {
   background-color: var(--red);
   color: var(--white);
 }
+
+.book-unselected {
+  background-color: #878787;
+}
+
 .search-title {
   font-size: 48px;
 }
+
 .sort {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
 }
+
 .sort-title {
   padding: 10px;
 }
+
 .sort button {
   all: unset;
   cursor: pointer;
