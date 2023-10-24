@@ -101,11 +101,11 @@ function getGenre(string $bookGenre): string
     }
 }
 
-function getSearchResults($bookTitle, $bookAuthor, $bookColor)
+function getSearchResults($book)
 {
-    if (strtolower($bookTitle) !== strtolower(trim(htmlspecialchars($_POST['searching']), " "))) {
-        return 'unselected';
+    if (strtolower($book['title']) == strtolower(trim(htmlspecialchars($_POST['searching']), " ")) || strtolower($book['author']) == strtolower(trim(htmlspecialchars($_POST['searching']), " "))) {
+        return $book['color'];
     } else {
-        return $bookColor;
+        return 'unselected';
     }
 }
