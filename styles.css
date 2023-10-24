@@ -39,13 +39,19 @@ body {
   font-size: 12px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   flex-direction: column;
 }
 .book-title {
   writing-mode: vertical-lr;
   text-orientation: upright;
-  align-self: baseline;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.book-author {
+  padding-bottom: 10px;
+
 }
 
 .book-width-small {
@@ -159,4 +165,11 @@ body {
   width: 24px;
   height: 24px;
   padding: 10px;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  background-color: white;
+  opacity: 1;
+  pointer-events: none;
 }
