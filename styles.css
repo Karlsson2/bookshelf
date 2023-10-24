@@ -160,3 +160,36 @@ body {
   height: 24px;
   padding: 10px;
 }
+
+.genre-scifi {
+  font-family: "Orbitron";
+  text-transform: uppercase;
+}
+
+.genre-fantasy {
+  font-family: "Medieval Sharp";
+  text-transform: uppercase;
+}
+
+.genre-romance {
+  font-family: "Courgette";
+}
+
+.genre-thriller {
+  font-family: "Black Ops One";
+  text-transform: uppercase;
+}
+
+.genre-horror {
+  font-family: "Nosifer";
+  text-transform: uppercase;
+}
+
+.genre-nonfic {
+  font-family: "Bebas Neue";
+  text-transform: uppercase;
+}
+
+.genre-crime {
+  font-family: "Special Elite";
+}

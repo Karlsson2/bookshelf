@@ -55,8 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="book book-<?= $book["color"] ?>
             book-width-<?= $book['page count'] < 300 ? 'small ' : ($book['page count'] < 600 ? 'medium ' : 'large ') ?>
             book-height-<?= strlen($book['title']) < 17 ? 'small ' : (strlen($book['title']) < 23 ? 'medium ' : 'large ') ?>">
-                 <div class="book-title"> <?= $book["title"] ?></div>
-                <div class="book-author"><?= getInitials($book["author"]) ?></div>   
+                <div class="book-title <?= getGenre($book['genre']); ?>"> <?= $book["title"] ?></div>
+                <div class="book-author"><?= getInitials($book["author"]) ?></div>
 
             </div>
         <?php endforeach; ?>
