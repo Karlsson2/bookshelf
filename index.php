@@ -21,6 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             case "author":
                 $bookArray = sortByAuthor($bookArray);
                 break;
+            case "height":
+                $bookArray = SortByLength($bookArray);
+                break;
+            case "genre":
+                $bookArray = SortByGenre($bookArray);
         }
     }
 }
@@ -47,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button name="sorting" type="submit" value="size">Size</button>
                 <button name="sorting" type="submit" value="color">Colour</button>
                 <button name="sorting" type="submit" value="author">Author</button>
+                <button name="sorting" type="submit" value="height">Height</button>
+                <button name="sorting" type="submit" value="genre">Genre</button>
             </form>
         </div>
     </div>
@@ -56,10 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="book book-<?= $book["color"] ?>
             book-width-<?= $book['page count'] < 300 ? 'small ' : ($book['page count'] < 600 ? 'medium ' : 'large ') ?>
             book-height-<?= strlen($book['title']) < 17 ? 'small ' : (strlen($book['title']) < 23 ? 'medium ' : 'large ') ?>">
-                  <div class="book-title">
+                <div class="icon"><?= getGenreIcon($book["genre"]) ?></div>
+                <div class="book-title">
                     <div class="title-text"><?= $book["title"] ?></div>
                 </div>
-                <div class="book-author"><?= getInitials($book["author"]) ?></div>   
+                <div class="book-author book-author-<?= $book["color"] ?>"><?= getInitials($book["author"]) ?></div>
 
             </div>
         <?php endforeach; ?>
