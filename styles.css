@@ -45,6 +45,7 @@ body {
 .book-title {
   writing-mode: vertical-lr;
   text-orientation: upright;
+  align-self: baseline;
 }
 
 .book-width-small {
