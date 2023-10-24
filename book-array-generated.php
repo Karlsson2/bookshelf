@@ -162,3 +162,8 @@ $bookArray = array(
         "color" => "pink"
     )
 );
+
+foreach ($bookArray as $book) {
+    $bookAuthors[] = $book['author'];
+    $bookTitles[] = $book['title'];
+}
