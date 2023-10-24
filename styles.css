@@ -1,11 +1,8 @@
 :root {
   --blue: #12719d;
-
   --light-blue: #0d506f;
-
   --green: #0dc2c6;
   --light-green: #0a9396;
-
   --purple: #8a5bb5;
   --light-purple: #704598;
   --pink: #e6738e;
@@ -132,7 +129,8 @@ body {
   color: var(--white);
 }
 
-.book-unselected {
+.book-unselected,
+.book-author-unselected {
   background-color: #878787;
 }
 
