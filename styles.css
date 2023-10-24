@@ -6,6 +6,10 @@
   --yellow: #f6d74c;
   --red: #d62828;
   --orange: #f77f00;
+  --body: #ece1d8;
+  --shelf: #857872;
+  --text-color: #524b46;
+  --white: #ececec;
 }
 
 * {
@@ -13,17 +17,32 @@
   padding: 0;
 }
 body {
+  background-color: var(--body);
+  color: var(--text-color);
 }
 .shelf {
-  width: 100vw;
+  width: 80vw;
   display: flex;
   gap: 2px;
-  border-bottom: 10px rgb(54, 27, 16) solid;
+  border-bottom: 10px var(--shelf) solid;
+  margin: 0 auto;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+.buttons {
+  margin-top: 40px;
 }
 .book {
   height: 400px;
   width: 50px;
-  background-color: grey;
+  border-radius: 5px 5px 0px 0px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.book-title {
   writing-mode: vertical-lr;
   text-orientation: upright;
   align-self: baseline;
@@ -50,23 +69,94 @@ body {
 
 .book-orange {
   background-color: var(--orange);
+  color: var(--white);
 }
 .book-pink {
   background-color: var(--pink);
+  color: var(--white);
 }
 .book-blue {
   background-color: var(--blue);
+  color: var(--white);
 }
 .book-purple {
   background-color: var(--purple);
+  color: var(--white);
 }
 .book-green {
   background-color: var(--green);
+  color: var(--white);
 }
 .book-yellow {
   background-color: var(--yellow);
+  color: var(--white);
 }
 
 .book-red {
   background-color: var(--red);
+  color: var(--white);
+}
+.search-title {
+  font-size: 48px;
+}
+.sort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.sort-title {
+  padding: 10px;
+}
+.sort button {
+  all: unset;
+  cursor: pointer;
+  color: var(--white);
+  background: var(--text-color);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.search form {
+  background-color: var(--text-color);
+  width: 300px;
+  height: 44px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search input[type="search"] {
+  all: unset;
+  font: 16px;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 6px 10px;
+}
+.search ::placeholder {
+  color: #fff;
+  opacity: 0.7;
+}
+.search button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+
+.search svg {
+  color: #fff;
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  padding: 10px;
 }
