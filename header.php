@@ -11,5 +11,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Courgette&family=MedievalSharp&family=Nosifer&family=Orbitron&family=Special+Elite&display=swap" rel="stylesheet">
     <title>A fine bookshelf</title>
+    <script>
+        function handleButtonClick(value) {
+            // Create a hidden input field and set its value
+            var hiddenInput = document.createElement("input");
+            hiddenInput.type = "hidden";
+            hiddenInput.name = "selected_values[]"; // Use [] for an array of values
+            hiddenInput.value = value;
 
+            // Append the hidden input to the form
+            document.forms["myForm"].appendChild(hiddenInput);
+
+            // Submit the form
+            document.forms["myForm"].submit();
+        }
+    </script>
 </head>

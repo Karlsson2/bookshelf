@@ -2,44 +2,6 @@
 
 declare(strict_types=1);
 
-function sortAlphabetically(array $sortingArray): array
-{
-    $key_values = array_column($sortingArray, 'title');
-    array_multisort($key_values, SORT_ASC, $sortingArray);
-    return $sortingArray;
-}
-function sortByAuthor(array $sortingArray): array
-{
-    $key_values = array_column($sortingArray, 'author');
-    array_multisort($key_values, SORT_ASC, $sortingArray);
-    return $sortingArray;
-}
-function sortByColor(array $sortingArray): array
-{
-    $key_values = array_column($sortingArray, 'color');
-    array_multisort($key_values, SORT_ASC, $sortingArray);
-    return $sortingArray;
-}
-function sortBySize(array $sortingArray): array
-{
-    $key_values = array_column($sortingArray, 'page count');
-    array_multisort($key_values, SORT_ASC, $sortingArray);
-    return $sortingArray;
-}
-function sortByLength(array $sortingArray): array
-{
-    usort($sortingArray, function ($a, $b) {
-        return strlen($a["title"]) - strlen($b["title"]);
-    });
-
-    return $sortingArray;
-}
-function sortByGenre(array $sortingArray): array
-{
-    $key_values = array_column($sortingArray, 'genre');
-    array_multisort($key_values, SORT_ASC, $sortingArray);
-    return $sortingArray;
-}
 function getInitials(string $fullName): string
 {
     $nameArray = explode(" ", $fullName, 2);
@@ -98,4 +60,27 @@ function getGenre(string $bookGenre): string
             return 'genre-crime';
             break;
     }
+}
+
+function multiSort(array $arrayToBeSorted, array $sortingArguments): array
+{
+    $sortColumns = [];
+
+    foreach ($sortingArguments as $sortArg) {
+        if ($sortArg === 'height') {
+            // Sorting by the length of the "title" column
+            $sortColumns[] = array_map('strlen', array_column($arrayToBeSorted, 'title'));
+        } else {
+            // Sorting by other specified columns
+            $column = array_column($arrayToBeSorted, $sortArg);
+            $sortColumns[] = $column;
+        }
+    }
+
+    $sortColumns[] = &$arrayToBeSorted;
+
+
+    array_multisort(...$sortColumns);
+
+    return $arrayToBeSorted;
 }

@@ -147,7 +147,7 @@ body {
   all: unset;
   cursor: pointer;
   color: var(--white);
-  background: var(--text-color);
+  background-color: var(--text-color);
   border-radius: 5px;
   padding: 10px;
 }
@@ -236,4 +236,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .genre-crime {
   font-family: "Special Elite";
+}
+.clicked {
+  background-color: white !important;
 }
