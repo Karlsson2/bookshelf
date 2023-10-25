@@ -4,7 +4,10 @@ require __DIR__ . "/book-array-generated.php";
 require __DIR__ . "/header.php";
 require __DIR__ . "/functions.php";
 
+
 $sorting = $_POST["selected_values"] ?? null;
+$searching = $_POST["searching"] ?? null;
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($sorting)) {
@@ -46,15 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="shelf">
         <?php foreach ($bookArray as $book) : ?>
 
-            <div class="book book-<?= $book["color"] ?>
+            <div class="book book-<?= !isset($_POST['searching']) ? $book["color"] : getSearchResults($book) ?>
             book-width-<?= $book['page count'] < 300 ? 'small ' : ($book['page count'] < 600 ? 'medium ' : 'large ') ?>
             book-height-<?= strlen($book['title']) < 17 ? 'small ' : (strlen($book['title']) < 23 ? 'medium ' : 'large ') ?>">
                 <div class="icon"><?= getGenreIcon($book["genre"]) ?></div>
                 <div class="book-title <?= getGenre($book['genre']); ?>">
                     <div class="title-text"><?= $book["title"] ?></div>
                 </div>
-                <div class="book-author book-author-<?= $book["color"] ?>"><?= getInitials($book["author"]) ?></div>
-
+                <div class="book-author book-author-<?= !isset($_POST['searching']) ? $book["color"] : getSearchResults($book) ?>"><?= getInitials($book["author"]) ?></div>
 
             </div>
         <?php endforeach; ?>

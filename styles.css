@@ -1,11 +1,8 @@
 :root {
   --blue: #12719d;
-
   --light-blue: #0d506f;
-
   --green: #0dc2c6;
   --light-green: #0a9396;
-
   --purple: #8a5bb5;
   --light-purple: #704598;
   --pink: #e6738e;
@@ -131,18 +128,27 @@ body {
   background-color: var(--red);
   color: var(--white);
 }
+
+.book-unselected,
+.book-author-unselected {
+  background-color: #878787;
+}
+
 .search-title {
   font-size: 48px;
 }
+
 .sort {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
 }
+
 .sort-title {
   padding: 10px;
 }
+
 .sort button {
   all: unset;
   cursor: pointer;

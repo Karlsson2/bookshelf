@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+require __DIR__ . '/book-array-generated.php';
 
 function getInitials(string $fullName): string
 {
@@ -65,22 +66,32 @@ function getGenre(string $bookGenre): string
 function multiSort(array $arrayToBeSorted, array $sortingArguments): array
 {
     $sortColumns = [];
-
+   //refactored all the sorting functions to this one function, edgecase necessary for sorting by "length" as its 
+    //"custom" and not actually sorting by the title but the string length.
     foreach ($sortingArguments as $sortArg) {
         if ($sortArg === 'height') {
-            // Sorting by the length of the "title" column
+            // Sorting by the length of the "title" column for the "length" sorting
             $sortColumns[] = array_map('strlen', array_column($arrayToBeSorted, 'title'));
         } else {
-            // Sorting by other specified columns
+            // Sorting by other specified columns supplied by the user.
             $column = array_column($arrayToBeSorted, $sortArg);
             $sortColumns[] = $column;
         }
     }
-
+// adding the array to be sorted as the last argument of the array to be passed into array_multisort
     $sortColumns[] = &$arrayToBeSorted;
 
-
+    //"exploding" the array with the array_columns and $arrayToBeSorted as the last argument being passed into multisort
     array_multisort(...$sortColumns);
 
     return $arrayToBeSorted;
+}
+
+function getSearchResults($book)
+{
+    if (strtolower($book['title']) == strtolower(trim(htmlspecialchars($_POST['searching']), " ")) || strtolower($book['author']) == strtolower(trim(htmlspecialchars($_POST['searching']), " "))) {
+        return $book['color'];
+    } else {
+        return 'unselected';
+    }
 }

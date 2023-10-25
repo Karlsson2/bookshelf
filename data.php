@@ -72,7 +72,7 @@ function generateBooks(int $numberOfBooks): array
     ];
 
     $titles = [
-        ['the', 'another', 'a second', 'my', 'your', 'her', 'his', 'our', 'their', 'inside the', 'under the'],
+        ['the', 'another', 'a second', 'my', 'your', 'her', 'his', 'our', 'their', 'inside the', 'under the', 'of', 'to'],
         ['eerie', 'chilling', 'bloody', 'macabre', 'passionate', 'enchanting', 'tender', 'intimate', 'amorous', 'otherworldly', 'mystical', 'ineffable', 'alien', 'opulent', 'sumptuous', 'elegant', 'ponderous', 'refined'],
         ['castle', 'cup', 'raven', 'court', 'case', 'lover', 'orc', 'existence', 'seduction', 'grind', 'walk', 'hour', 'song', 'business', 'affair', 'master', 'gardener', 'butcher', 'library', 'cult', 'circle', 'denizen', 'innocence']
     ];

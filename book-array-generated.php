@@ -43,7 +43,7 @@ $bookArray = array(
     ),
     array(
         "author" => "Lisicz Andesen",
-        "title" => "Inside The Chilling Affair",
+        "title" => "A Second Chilling Affair",
         "ISBN" => "1773404689493",
         "genre" => "Fantasy",
         "page count" => 798,
@@ -67,7 +67,7 @@ $bookArray = array(
     ),
     array(
         "author" => "Thoael Sundini",
-        "title" => "Our Elegant Circle",
+        "title" => "An Elegant Circle",
         "ISBN" => "1751547766042",
         "genre" => "Fantasy",
         "page count" => 587,
@@ -83,7 +83,7 @@ $bookArray = array(
     ),
     array(
         "author" => "Robric Orltiwa",
-        "title" => "Under The Bloody Seduction",
+        "title" => "The Bloody Seduction",
         "ISBN" => "1678318292302",
         "genre" => "Non-Fiction",
         "page count" => 674,
@@ -115,7 +115,7 @@ $bookArray = array(
     ),
     array(
         "author" => "Wilchi Hussaran",
-        "title" => "Inside The Intimate Walk",
+        "title" => "Outside The Intimate Walk",
         "ISBN" => "1052923307634",
         "genre" => "Science Fiction",
         "page count" => 800,
@@ -123,7 +123,7 @@ $bookArray = array(
     ),
     array(
         "author" => "Thodrzej Vandeer",
-        "title" => "Inside The Tender Grind",
+        "title" => "Their Tender Grind",
         "ISBN" => "1843516885660",
         "genre" => "Fantasy",
         "page count" => 476,
@@ -131,7 +131,7 @@ $bookArray = array(
     ),
     array(
         "author" => "Tholie Marczan",
-        "title" => "Inside The Ineffable Court",
+        "title" => "The Ineffable Court",
         "ISBN" => "1854882535046",
         "genre" => "Horror",
         "page count" => 514,
@@ -155,10 +155,15 @@ $bookArray = array(
     ),
     array(
         "author" => "Lischan Wuben",
-        "title" => "Under The Elegant Raven",
+        "title" => "Of The Elegant Raven",
         "ISBN" => "1176412904688",
         "genre" => "Crime",
         "page count" => 311,
         "color" => "pink"
     )
 );
+
+foreach ($bookArray as $book) {
+    $bookAuthors[] = $book['author'];
+    $bookTitles[] = $book['title'];
+}
