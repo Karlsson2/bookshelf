@@ -17,6 +17,7 @@
   --shelf: #857872;
   --text-color: #524b46;
   --white: #ececec;
+  --button-green: #73e6bc;
 }
 
 * {
@@ -193,7 +194,9 @@ body {
   width: 44px;
   height: 44px;
 }
-
+button.submit {
+  background-color: var(--button-green);
+}
 .search svg {
   color: #fff;
   fill: currentColor;
