@@ -4,33 +4,16 @@ require __DIR__ . "/book-array-generated.php";
 require __DIR__ . "/header.php";
 require __DIR__ . "/functions.php";
 
-$sorting = $_POST["sorting"] ?? null;
+
+$sorting = $_POST["selected_values"] ?? null;
 $searching = $_POST["searching"] ?? null;
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($sorting)) {
-        switch ($sorting) {
-            case "alphabetically":
-                $bookArray = sortAlphabetically($bookArray);
-                break;
-            case "size":
-                $bookArray = sortBySize($bookArray);
-                break;
-            case "color":
-                $bookArray = sortByColor($bookArray);
-                break;
-            case "author":
-                $bookArray = sortByAuthor($bookArray);
-                break;
-            case "height":
-                $bookArray = SortByLength($bookArray);
-                break;
-            case "genre":
-                $bookArray = SortByGenre($bookArray);
-        }
+        $bookArray = multiSort($bookArray, $sorting);
     }
 }
-
 ?>
 
 <body>
@@ -48,14 +31,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="sort">
             <div class="sort-title">Sort by</div>
-            <form action="index.php" method="POST">
-                <button name="sorting" type="submit" value="alphabetically">Alphabetically</button>
-                <button name="sorting" type="submit" value="size">Size</button>
-                <button name="sorting" type="submit" value="color">Colour</button>
-                <button name="sorting" type="submit" value="author">Author</button>
-                <button name="sorting" type="submit" value="height">Height</button>
-                <button name="sorting" type="submit" value="genre">Genre</button>
+            <form name="sort" action="index.php" method="POST">
+
+                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('title')">Alphabetically</button>
+                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('page count')">Length</button>
+                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('color')">Colour</button>
+                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('author')">Author</button>
+                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('genre')">Genre</button>
+                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('height')">Height</button>
+                <button type="submit">Sort!</button>
             </form>
+
+
+
         </div>
     </div>
     <div class="shelf">
@@ -72,6 +60,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         <?php endforeach; ?>
     </div>
+    <script>
+        function handleButtonClick(value) {
+            var form = document.forms["sort"];
+            var existingInput = null;
+
+            // Check if an input with the same name and value already exists
+            for (var i = 0; i < form.elements.length; i++) {
+                var element = form.elements[i];
+                if (element.type === "hidden" && element.name === "selected_values[]" && element.value === value) {
+                    existingInput = element;
+                    break; // Exit the loop once a match is found
+                }
+            }
+
+            if (existingInput) {
+                // If a matching input is found, remove it
+                existingInput.parentNode.removeChild(existingInput);
+            } else {
+                // If no matching input is found, create and append a new one
+                var hiddenInput = document.createElement("input");
+                hiddenInput.type = "hidden";
+                hiddenInput.name = "selected_values[]";
+                hiddenInput.value = value;
+                form.appendChild(hiddenInput);
+            }
+
+        }
+        // add eventlisteners to each of the buttons when they are pressed so that the user can see which sorting 
+        //options they have selected.
+        const sortingItems = document.querySelectorAll('.sorting');
+        sortingItems.forEach((sortingItem) => {
+            sortingItem.addEventListener('click', function() {
+                this.classList.toggle("clicked");
+            })
+        });
+    </script>
 </body>
 
 <?php
