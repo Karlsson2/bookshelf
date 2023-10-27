@@ -1,5 +1,4 @@
 <?php
-require __DIR__ . "/database1.php";
 require __DIR__ . "/header.php";
 require __DIR__ . "/functions.php";
 
