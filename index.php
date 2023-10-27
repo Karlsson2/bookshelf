@@ -39,10 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('author')">Author</button>
                 <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('genre')">Genre</button>
                 <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('height')">Height</button>
-                <button type="submit">Sort!</button>
+                <button class="submit" type="submit">Sort!</button>
             </form>
-
-
 
         </div>
     </div>
