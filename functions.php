@@ -48,7 +48,7 @@ function getInitials(string $fullName): string
     return $fullName;
 }
 
-function getGenreIcon(string $genre)
+function getGenreIcon(string $genre): string
 {
     switch ($genre) {
         case "Horror":
@@ -101,7 +101,7 @@ function getGenre(string $bookGenre): string
     }
 }
 
-function getSearchResults($book)
+function getSearchResults(array $book): string
 {
     $searchString = strtolower(trim(htmlspecialchars($_POST['searching']), " "));
     $title = strtolower($book['title']);
