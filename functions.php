@@ -103,7 +103,12 @@ function getGenre(string $bookGenre): string
 
 function getSearchResults($book)
 {
-    if (strtolower($book['title']) == strtolower(trim(htmlspecialchars($_POST['searching']), " ")) || strtolower($book['author']) == strtolower(trim(htmlspecialchars($_POST['searching']), " "))) {
+    $searchString = strtolower(trim(htmlspecialchars($_POST['searching']), " "));
+    $title = strtolower($book['title']);
+    $author = strtolower($book['author']);
+    $genre = strtolower($book['genre']);
+
+    if (stripos($title, $searchString) !== false || stripos($author, $searchString) !== false || stripos($genre, $searchString) !== false) {
         return $book['color'];
     } else {
         return 'unselected';
