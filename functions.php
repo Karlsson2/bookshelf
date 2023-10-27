@@ -62,7 +62,12 @@ function getGenre(string $bookGenre): string
             break;
     }
 }
-
+// function to change the authors into their surnames so they can be sorted via surname instead of firstname
+function explodeAndSort(string $string)
+{
+    $newString = explode(" ", $string);
+    return $newString[1];
+}
 function multiSort(array $arrayToBeSorted, array $sortingArguments): array
 {
     $sortColumns = [];
@@ -72,6 +77,11 @@ function multiSort(array $arrayToBeSorted, array $sortingArguments): array
         if ($sortArg === 'height') {
             // Sorting by the length of the "title" column for the "length" sorting
             $sortColumns[] = array_map('strlen', array_column($arrayToBeSorted, 'title'));
+        } elseif ($sortArg === "author") {
+
+            // sort authors with surname, grab the surname from the fullname string author with explodeAndSort.
+
+            $sortColumns[] = array_map('explodeAndSort', array_column($arrayToBeSorted, 'author'));
         } else {
             // Sorting by other specified columns supplied by the user.
             $column = array_column($arrayToBeSorted, $sortArg);
