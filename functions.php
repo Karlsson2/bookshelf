@@ -78,7 +78,6 @@ function multiSort(array $arrayToBeSorted, array $sortingArguments): array
         if ($sortArg === 'height') {
             // Sorting by the length of the "title" column for the "length" sorting
             $sortColumns[] = array_map('strlen', array_column($arrayToBeSorted, 'title'));
-            var_dump($sortColumns);
         } elseif ($sortArg === "author") {
 
             // sort authors with surname, grab the surname from the fullname string author with explodeAndSort.
