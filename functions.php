@@ -10,7 +10,7 @@ function getInitials(string $fullName): string
     return $fullName;
 }
 
-function getGenreIcon(string $genre)
+function getGenreIcon(string $genre): string
 {
     switch ($genre) {
         case "Horror":
@@ -66,7 +66,7 @@ function getGenre(string $bookGenre): string
 function multiSort(array $arrayToBeSorted, array $sortingArguments): array
 {
     $sortColumns = [];
-   //refactored all the sorting functions to this one function, edgecase necessary for sorting by "length" as its 
+    //refactored all the sorting functions to this one function, edgecase necessary for sorting by "length" as its 
     //"custom" and not actually sorting by the title but the string length.
     foreach ($sortingArguments as $sortArg) {
         if ($sortArg === 'height') {
@@ -78,7 +78,7 @@ function multiSort(array $arrayToBeSorted, array $sortingArguments): array
             $sortColumns[] = $column;
         }
     }
-// adding the array to be sorted as the last argument of the array to be passed into array_multisort
+    // adding the array to be sorted as the last argument of the array to be passed into array_multisort
     $sortColumns[] = &$arrayToBeSorted;
 
     //"exploding" the array with the array_columns and $arrayToBeSorted as the last argument being passed into multisort
@@ -87,9 +87,14 @@ function multiSort(array $arrayToBeSorted, array $sortingArguments): array
     return $arrayToBeSorted;
 }
 
-function getSearchResults($book)
+function getSearchResults(array $book): string
 {
-    if (strtolower($book['title']) == strtolower(trim(htmlspecialchars($_POST['searching']), " ")) || strtolower($book['author']) == strtolower(trim(htmlspecialchars($_POST['searching']), " "))) {
+    $searchString = strtolower(trim(htmlspecialchars($_POST['searching']), " "));
+    $title = strtolower($book['title']);
+    $author = strtolower($book['author']);
+    $genre = strtolower($book['genre']);
+
+    if (stripos($title, $searchString) !== false || stripos($author, $searchString) !== false || stripos($genre, $searchString) !== false) {
         return $book['color'];
     } else {
         return 'unselected';
