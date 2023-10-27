@@ -17,6 +17,7 @@
   --shelf: #857872;
   --text-color: #524b46;
   --white: #ececec;
+  --button-green: #73e6bc;
 }
 
 * {
@@ -193,7 +194,9 @@ body {
   width: 44px;
   height: 44px;
 }
-
+button.submit {
+  background-color: var(--button-green);
+}
 .search svg {
   color: #fff;
   fill: currentColor;
@@ -243,6 +246,35 @@ input[type="search"]::-webkit-search-cancel-button {
 .genre-crime {
   font-family: "Special Elite";
 }
+
 .clicked {
   background-color: white !important;
+}
+
+.first-clicked {
+  border: 1px dashed var(--text-color) !important;
+}
+
+.sorting.alphabetical-sort.clicked {
+  background-color: #ffcfd2 !important;
+}
+
+.length-sort.clicked {
+  background-color: #f1c0e8 !important;
+}
+
+.color-sort.clicked {
+  background-color: #cfbaf0 !important;
+}
+
+.author-sort.clicked {
+  background-color: #a3c4f3 !important;
+}
+
+.genre-sort.clicked {
+  background-color: #90dbf4 !important;
+}
+
+.height-sort.clicked {
+  background-color: #8eecf5 !important;
 }

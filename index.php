@@ -34,16 +34,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="sort-title">Sort by</div>
             <form name="sort" action="index.php" method="POST">
 
-                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('title')">Alphabetically</button>
-                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('page_count')">Length</button>
-                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('color')">Colour</button>
-                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('author')">Author</button>
-                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('genre')">Genre</button>
-                <button class="sorting" name="sorting" type="button" onclick="handleButtonClick('height')">Height</button>
-                <button type="submit">Sort!</button>
+
+                <button class="sorting alphabetical-sort" name="sorting" type="button" onclick="handleButtonClick('title')">Alphabetically</button>
+                <button class="sorting length-sort" name="sorting" type="button" onclick="handleButtonClick('page_count')">Length</button>
+                <button class="sorting color-sort" name="sorting" type="button" onclick="handleButtonClick('color')">Colour</button>
+                <button class="sorting author-sort" name="sorting" type="button" onclick="handleButtonClick('author')">Author</button>
+                <button class="sorting genre-sort" name="sorting" type="button" onclick="handleButtonClick('genre')">Genre</button>
+                <button class="sorting height-sort" name="sorting" type="button" onclick="handleButtonClick('height')">Height</button>
+                <button class="submit" type="submit">Sort!</button>
             </form>
-
-
 
         </div>
     </div>
@@ -86,22 +85,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 hiddenInput.value = value;
                 form.appendChild(hiddenInput);
             }
-
         }
         // add eventlisteners to each of the buttons when they are pressed so that the user can see which sorting 
         //options they have selected.
         const sortingItems = document.querySelectorAll('.sorting');
+        let isFirstClick = true;
+
         sortingItems.forEach((sortingItem) => {
             sortingItem.addEventListener('click', function() {
-                let random = this;
-                this.classList.toggle("clicked");
-                sortingItems.forEach((sortingItem) => {
-                    if (sortingItem.classList.contains("clicked")) {
-                        random.classList.add("second.clicked");
-                    }
-                });
 
-            })
+                if (isFirstClick) {
+                    this.classList.add("clicked");
+                    this.classList.add("first-clicked");
+                    isFirstClick = false;
+                } else {
+                    this.classList.toggle("clicked");
+                }
+            });
         });
     </script>
 </body>
