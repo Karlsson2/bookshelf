@@ -62,16 +62,28 @@ function getGenre(string $bookGenre): string
             break;
     }
 }
-
+// function to change the authors into their surnames so they can be sorted via surname instead of firstname
+function explodeAndSort(string $string)
+{
+    $newString = explode(" ", $string);
+    return $newString[1];
+}
 function multiSort(array $arrayToBeSorted, array $sortingArguments): array
 {
     $sortColumns = [];
     //refactored all the sorting functions to this one function, edgecase necessary for sorting by "length" as its 
     //"custom" and not actually sorting by the title but the string length.
     foreach ($sortingArguments as $sortArg) {
+
         if ($sortArg === 'height') {
             // Sorting by the length of the "title" column for the "length" sorting
             $sortColumns[] = array_map('strlen', array_column($arrayToBeSorted, 'title'));
+            var_dump($sortColumns);
+        } elseif ($sortArg === "author") {
+
+            // sort authors with surname, grab the surname from the fullname string author with explodeAndSort.
+
+            $sortColumns[] = array_map('explodeAndSort', array_column($arrayToBeSorted, 'author'));
         } else {
             // Sorting by other specified columns supplied by the user.
             $column = array_column($arrayToBeSorted, $sortArg);
@@ -99,4 +111,26 @@ function getSearchResults(array $book): string
     } else {
         return 'unselected';
     }
+}
+
+function connect()
+{
+    return $db = new PDO("sqlite:" . __DIR__ . "/books.db");
+}
+
+
+function getAllBooks(): array
+{
+    $db = connect();
+    $query = $db->query("SELECT * FROM books");
+    $rows = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
+function getFirstBook(): array
+{
+    $db = connect();
+    $query = $db->query("SELECT * FROM books LIMIT 1");
+    $rows = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
 }

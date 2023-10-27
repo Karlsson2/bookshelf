@@ -1,12 +1,13 @@
 <?php
-
-require __DIR__ . "/book-array-generated.php";
+require __DIR__ . "/database1.php";
 require __DIR__ . "/header.php";
 require __DIR__ . "/functions.php";
 
-
+$bookArray = getAllBooks();
 $sorting = $_POST["selected_values"] ?? null;
 $searching = $_POST["searching"] ?? null;
+
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -33,8 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="sort-title">Sort by</div>
             <form name="sort" action="index.php" method="POST">
 
+
                 <button class="sorting alphabetical-sort" name="sorting" type="button" onclick="handleButtonClick('title')">Alphabetically</button>
-                <button class="sorting length-sort" name="sorting" type="button" onclick="handleButtonClick('page count')">Length</button>
+                <button class="sorting length-sort" name="sorting" type="button" onclick="handleButtonClick('page_count')">Length</button>
                 <button class="sorting color-sort" name="sorting" type="button" onclick="handleButtonClick('color')">Colour</button>
                 <button class="sorting author-sort" name="sorting" type="button" onclick="handleButtonClick('author')">Author</button>
                 <button class="sorting genre-sort" name="sorting" type="button" onclick="handleButtonClick('genre')">Genre</button>
@@ -47,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="shelf">
         <?php foreach ($bookArray as $book) : ?>
             <div class="book book-<?= !isset($_POST['searching']) ? $book["color"] : getSearchResults($book) ?>
-            book-width-<?= $book['page count'] < 300 ? 'small ' : ($book['page count'] < 600 ? 'medium ' : 'large ') ?>
+            book-width-<?= $book['page_count'] < 300 ? 'small ' : ($book['page_count'] < 600 ? 'medium ' : 'large ') ?>
             book-height-<?= strlen($book['title']) < 17 ? 'small ' : (strlen($book['title']) < 23 ? 'medium ' : 'large ') ?>">
                 <div class="icon"><?= getGenreIcon($book["genre"]) ?></div>
                 <div class="book-title <?= getGenre($book['genre']); ?>">
@@ -91,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         sortingItems.forEach((sortingItem) => {
             sortingItem.addEventListener('click', function() {
+
                 if (isFirstClick) {
                     this.classList.add("clicked");
                     this.classList.add("first-clicked");
